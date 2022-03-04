@@ -1,18 +1,11 @@
 provider "aws" {
-	region  = var.region
+	region  = us-east-2
 }
     
 resource "aws_instance" "main" {
-	ami           = var.ami
-	instance_type = var.instance_type
+	ami           = ami-0b614a5d911900a9b
+	instance_type = t2.micro
 }
 
-resource "aws_vpc" "myvpc" {
-    cidr_block = var.vpc
-}
 
-resource "aws_subnet" "subnet" {
-    vpc_id = aws_vpc.myvpc.id
-    cidr_block = var.subnet
-}
 
