@@ -1,3 +1,14 @@
+terraform {
+  cloud {
+    organization = "swethamothe"
+
+    workspaces {
+      name = "basicenvsetup"
+    }
+  }
+}
+
+
 provider "aws" {
 	region  = var.region
 }
