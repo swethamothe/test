@@ -16,7 +16,6 @@ jobs:
       AWS_REGION: 'us-east-2'
 
     steps:
-      # Checkout the repository to the GitHub Actions runner
       - name: Checkout
         uses: actions/checkout@v2
 
