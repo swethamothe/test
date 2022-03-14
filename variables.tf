@@ -1,11 +1,9 @@
 variable "region" {
 	type = string
-	default = "us-east-2"
 }
 
 variable "ami" {
 	type = string
-	default = "ami-0b614a5d911900a9b"
 }
 
 variable "instance_type" {
@@ -13,4 +11,10 @@ variable "instance_type" {
 	default = "t2.micro"
 }
 
+variable "vpc" {
+    type = string
+}
 
+variable "subnet" {
+    type = string
+}
