@@ -5,9 +5,16 @@ terraform {
       version = "~> 4.3.0"
     }
   }
+  cloud {
+    organization = "swethamothe"
+
+    workspaces {
+      name = "basicenvsetup"
+    }
+  }
 }
 
-provider "aws" {
+provider "aws"
 	region  = var.region
 }
     
