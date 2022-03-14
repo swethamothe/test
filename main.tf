@@ -5,6 +5,7 @@ terraform {
       version = "~> 4.3.0"
     }
   }
+  
   cloud {
     organization = "swethamothe"
 
@@ -14,7 +15,7 @@ terraform {
   }
 }
 
-provider "aws"
+provider "aws" {
 	region  = var.region
 }
     
