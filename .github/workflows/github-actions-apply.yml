@@ -1,3 +1,4 @@
+#testing1
 name: 'Terraform Automation'
 
 on:
@@ -49,5 +50,5 @@ jobs:
       - name: Terraform Apply
         id: apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: terraform apply -auto-approve 
-
+        run: terraform apply -auto-approve
+        
