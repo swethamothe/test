@@ -5,9 +5,11 @@ terraform {
     }
   }
   backend "remote" {
-    organization = "swethamothe"
+    organization = "Tyrell"
     workspaces {
-      name = "basicenvsetup"
+      name = "dev"
+      name = "qa"
+      name = "prod"
     }
   }
 }
