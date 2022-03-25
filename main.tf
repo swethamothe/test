@@ -7,9 +7,10 @@ terraform {
   backend "remote" {
     organization = "Tyrell"
     workspaces {
-      name = "dev"
-      name = "qa"
-      name = "prod"
+      names:
+	- dev
+	- qa
+	- prod    
     }
   }
 }
