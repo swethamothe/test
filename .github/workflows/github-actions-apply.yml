@@ -52,7 +52,7 @@ jobs:
         #if: github.ref == 'refs/heads/dev' && github.event_name == 'push'
         run: terraform apply -auto-approve
 
-  terraform:
+  terraform2:
     if: github.ref == 'refs/heads/qa' && github.event_name == 'push'
     name: 'Terraform-qa'
     runs-on: ubuntu-latest
@@ -96,7 +96,7 @@ jobs:
         run: terraform apply -auto-approve
 
 
-  terraform:
+  terraform3:
     if: github.ref == 'refs/heads/prod' && github.event_name == 'push'
     name: 'Terraform-prod'
     runs-on: ubuntu-latest
