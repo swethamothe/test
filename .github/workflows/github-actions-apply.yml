@@ -32,28 +32,32 @@ jobs:
       - name: if qa, terraform init, validate, plan, apply
         if: github.ref == 'refs/heads/qa' && github.event_name == 'push'
         run: |
-          #cd ppb
-          #terraform workspace select qa
-          terraform init
+          terraform init    
           terraform workspace select qa
           terraform validate -no-color
           terraform plan -no-color
           terraform apply -auto-approve
         env:
-          TYRELL_ENVIRONMENT: "qa"
+          TF_WORKSPACE: "qa" 
 
       - name: if dev, terraform init, validate, plan, apply
-        if: github.ref == 'refs/heads/dev' && github.event_name == 'push'
+        id: init
+        #if: github.ref == 'refs/heads/dev' && github.event_name == 'push'
+        run: terraform init
+        env:
+          TF_WORKSPACE: "dev" 
+          
+      - name: workspace select
+        id: workspace
+        run: terraform workspace select dev
+          
+      - name: validate
         run: |
-          #cd ppb
-          #terraform workspace select dev
-          terraform init
-          terraform workspace select qa
           terraform validate -no-color
           terraform plan -no-color
           terraform apply -auto-approve
-        env:
-          TYRELL_ENVIRONMENT: dev
+        #env:
+          #TYRELL_ENVIRONMENT: dev
 
 
 
