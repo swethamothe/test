@@ -51,7 +51,7 @@ jobs:
         #if: github.ref == 'refs/heads/dev' && github.event_name == 'push'
         run: terraform init
         env:
-          TYRELL_ENVIRONMENT: dev 
+          TF_WORKSPACE: "dev" 
           
       - name: workspace select
         id: workspace
