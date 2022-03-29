@@ -47,22 +47,23 @@ jobs:
         
 
       - name: if dev, terraform init, validate, plan, apply
+        id: init
         #if: github.ref == 'refs/heads/dev' && github.event_name == 'push'
-        run: |
-          #cd ppb
-          #terraform workspace select dev
-          terraform init
+        run: terraform init
         env:
           TYRELL_ENVIRONMENT: dev 
           
       - name: workspace select
+        id: workspace
+        run: terraform workspace select dev
+          
+      - name: validate
         run: |
-          terraform workspace select qa
           terraform validate -no-color
           terraform plan -no-color
           terraform apply -auto-approve
-        env:
-          TYRELL_ENVIRONMENT: dev
+        #env:
+          #TYRELL_ENVIRONMENT: dev
 
 
 
