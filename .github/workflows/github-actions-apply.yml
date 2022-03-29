@@ -35,12 +35,14 @@ jobs:
           #cd ppb
           #terraform workspace select qa
           terraform init
+        env:
+          TYRELL_ENVIRONMENT: "qa"
+        run: |  
           terraform workspace select qa
           terraform validate -no-color
           terraform plan -no-color
           terraform apply -auto-approve
-        env:
-          TYRELL_ENVIRONMENT: "qa"
+        
 
       - name: if dev, terraform init, validate, plan, apply
         if: github.ref == 'refs/heads/dev' && github.event_name == 'push'
@@ -48,6 +50,9 @@ jobs:
           #cd ppb
           #terraform workspace select dev
           terraform init
+        env:
+          TYRELL_ENVIRONMENT: "dev"
+        run: |  
           terraform workspace select qa
           terraform validate -no-color
           terraform plan -no-color
