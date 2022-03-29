@@ -33,8 +33,9 @@ jobs:
         if: github.ref == 'refs/heads/qa' && github.event_name == 'push'
         run: |
           #cd ppb
-          terraform workspace select qa
+          #terraform workspace select qa
           terraform init
+          terraform workspace select qa
           terraform validate -no-color
           terraform plan -no-color
           terraform apply -auto-approve
@@ -45,8 +46,9 @@ jobs:
         if: github.ref == 'refs/heads/dev' && github.event_name == 'push'
         run: |
           #cd ppb
-          terraform workspace select qa
+          #terraform workspace select dev
           terraform init
+          terraform workspace select qa
           terraform validate -no-color
           terraform plan -no-color
           terraform apply -auto-approve
