@@ -37,8 +37,8 @@ jobs:
           terraform validate -no-color
           terraform plan -no-color
           terraform apply -auto-approve
-        env:
-          TF_WORKSPACE: "qa" 
+        #env:
+         # TF_WORKSPACE: "qa" 
 
       - name: if dev, terraform init, validate, plan, apply
         id: init
