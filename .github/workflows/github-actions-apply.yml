@@ -58,6 +58,8 @@ jobs:
           terraform apply -auto-approve
         #env:
           #TYRELL_ENVIRONMENT: dev
+          
+          
 
 
 
