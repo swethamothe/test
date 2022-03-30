@@ -4,6 +4,7 @@ name: 'Terraform Automation'
 on:
   push:
     branches:
+      - main
       - dev
       - qa
       - prod
