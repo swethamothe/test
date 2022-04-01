@@ -34,12 +34,12 @@ jobs:
       - name: if qa, terraform init, validate, plan, apply
         if: github.ref == 'refs/heads/qa' && github.event_name == 'push'
         run: |
-          #cd ppb
           terraform init
           terraform validate -no-color
           terraform plan -no-color
           terraform apply -auto-approve  
-        
+          #terraform destroy
+          
   Deploy-to-Terraform-dev:
     needs: Build
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
